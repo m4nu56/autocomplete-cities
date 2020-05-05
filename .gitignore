@@ -84,3 +84,5 @@ src/build
 .idea/
 *.iml
 *.iws
+
+storybook-static

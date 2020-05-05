@@ -25,3 +25,14 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
+
+    - name: Build app and Storybook, prepare dist
+      run: |
+        npm run build-storybook
+
+    - name: Deploy to GH Pages
+      uses: peaceiris/actions-gh-pages@v2
+      env:
+        ACTIONS_DEPLOY_KEY: ${{ secrets.GITHUB_TOKEN }}
+        PUBLISH_BRANCH: gh-pages
+        PUBLISH_DIR: ./storybook-static
