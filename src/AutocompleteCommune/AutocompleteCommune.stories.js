@@ -11,7 +11,7 @@ export default {
 export const With10ResultsQuery = () => {
   new Server({
     routes () {
-      this.namespace = 'api'
+      this.namespace = 'autocomplete-cities/api'
       this.get('with-10-results/observatoire/communes/light', () => ({
         'data': [
           {
@@ -90,7 +90,7 @@ export const With10ResultsQuery = () => {
 export const WithOnly1Result = () => {
   new Server({
     routes () {
-      this.namespace = 'api'
+      this.namespace = 'autocomplete-cities/api'
       this.get('only-1-result/observatoire/communes/light', () => ({
         'data': [
           {
@@ -115,7 +115,7 @@ export const WithOnly1Result = () => {
 export const WithNoResultsFromApi = () => {
   new Server({
     routes () {
-      this.namespace = 'api'
+      this.namespace = 'autocomplete-cities/api'
       this.get('no-result/observatoire/communes/light', () => ({
         'data': [],
         'page': 1,
@@ -133,7 +133,7 @@ export const WithNoResultsFromApi = () => {
 export const WithErrorFromApi = () => {
   new Server({
     routes () {
-      this.namespace = 'api'
+      this.namespace = 'autocomplete-cities/api'
       this.get('error/observatoire/communes/light', () => {
         let headers = {}
         let data = { errors: ['Server did not respond'] }
