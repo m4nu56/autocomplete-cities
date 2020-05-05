@@ -10,6 +10,7 @@ export default {
 
 export const With10ResultsQuery = () => {
   new Server({
+    namespace: '',
     routes () {
       this.get('with-10-results/observatoire/communes/light', () => ({
         'data': [
@@ -88,6 +89,7 @@ export const With10ResultsQuery = () => {
 
 export const WithOnly1Result = () => {
   new Server({
+    namespace: '',
     routes () {
       this.get('only-1-result/observatoire/communes/light', () => ({
         'data': [
@@ -112,6 +114,7 @@ export const WithOnly1Result = () => {
 
 export const WithNoResultsFromApi = () => {
   new Server({
+    namespace: '',
     routes () {
       this.get('no-result/observatoire/communes/light', () => ({
         'data': [],
@@ -129,6 +132,7 @@ export const WithNoResultsFromApi = () => {
 
 export const WithErrorFromApi = () => {
   new Server({
+    namespace: '',
     routes () {
       this.get('error/observatoire/communes/light', () => {
         let headers = {}
