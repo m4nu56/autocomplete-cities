@@ -11,7 +11,7 @@ export default {
 export const With10ResultsQuery = () => {
   new Server({
     routes () {
-      this.namespace = ''
+      this.namespace = 'api'
       this.get('with-10-results/observatoire/communes/light', () => ({
         'data': [
           {
@@ -84,13 +84,13 @@ export const With10ResultsQuery = () => {
   return <AutocompleteCommune
     onChange={action('onChange')}
     setError={action('setError')}
-    apiUrl={'with-10-results'}/>
+    apiUrl={'/api/with-10-results'}/>
 }
 
 export const WithOnly1Result = () => {
   new Server({
     routes () {
-      this.namespace = ''
+      this.namespace = 'api'
       this.get('only-1-result/observatoire/communes/light', () => ({
         'data': [
           {
@@ -109,13 +109,13 @@ export const WithOnly1Result = () => {
   return <AutocompleteCommune
     onChange={action('onChange')}
     setError={action('setError')}
-    apiUrl={'only-1-result'}/>
+    apiUrl={'/api/only-1-result'}/>
 }
 
 export const WithNoResultsFromApi = () => {
   new Server({
     routes () {
-      this.namespace = ''
+      this.namespace = 'api'
       this.get('no-result/observatoire/communes/light', () => ({
         'data': [],
         'page': 1,
@@ -127,13 +127,13 @@ export const WithNoResultsFromApi = () => {
   return <AutocompleteCommune
     onChange={action('onChange')}
     setError={action('setError')}
-    apiUrl={'no-result'}/>
+    apiUrl={'/api/no-result'}/>
 }
 
 export const WithErrorFromApi = () => {
   new Server({
     routes () {
-      this.namespace = ''
+      this.namespace = 'api'
       this.get('error/observatoire/communes/light', () => {
         let headers = {}
         let data = { errors: ['Server did not respond'] }
@@ -144,5 +144,5 @@ export const WithErrorFromApi = () => {
   return <AutocompleteCommune
     onChange={action('onChange')}
     setError={action('setError')}
-    apiUrl={'error'}/>
+    apiUrl={'/api/error'}/>
 }
