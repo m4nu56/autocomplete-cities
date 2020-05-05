@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import TextField from '@material-ui/core/TextField'
 import Autocomplete from '@material-ui/lab/Autocomplete'
-import CircularProgress from '@material-ui/core/CircularProgress'
-import InputAdornment from '@material-ui/core/InputAdornment'
-import SearchIcon from '@material-ui/icons/Search'
 import { makeRequest } from '../api'
+import { AutocompleteTextField } from './AutocompleteTextField'
 
 export default function AutocompleteCommune ({ setError, onChange, apiUrl }) {
   const [open, setOpen] = useState(false)
@@ -41,59 +38,28 @@ export default function AutocompleteCommune ({ setError, onChange, apiUrl }) {
 
   useEffect(() => {
     if (!loading) {
-      return undefined
+      return
     }
     loadCities('')
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loading])
 
-  useEffect(() => {
-    if (!open) {
-      setOptions([])
-    }
-  }, [open])
-
-  return (
-    <Autocomplete
-      id="autocomplete-cities"
-      style={{ width: 300 }}
-      open={open}
-      onOpen={() => {
-        setOpen(true);
-      }}
-      onClose={() => {
-        setOpen(false);
-      }}
-      onChange={onChange}
-      getOptionSelected={(option, value) => option.nom === value.nom}
-      getOptionLabel={city => `${city.nom} - ${city.codePostal}`}
-      options={options}
-      loading={loading}
-      onInputChange={(e, values) => {
-        loadCities(values)
-      }}
-      renderInput={params => (
-        <TextField
-          {...params}
-          placeholder="Commune..."
-          fullWidth
-          variant="outlined"
-          InputProps={{
-            ...params.InputProps,
-            endAdornment: (
-              <React.Fragment>
-                {loading ? <CircularProgress color="inherit" size={20}/> : null}
-                {params.InputProps.endAdornment}
-              </React.Fragment>
-            ),
-            startAdornment: (
-              <InputAdornment position="start">
-                <SearchIcon/>
-              </InputAdornment>
-            ),
-          }}
-        />
-      )}
-    />
-  );
+  return <Autocomplete
+    id="autocomplete-cities"
+    style={{ width: 300 }}
+    open={open}
+    onOpen={() => {
+      setOpen(true)
+    }}
+    onClose={() => {
+      setOpen(false)
+    }}
+    onChange={onChange}
+    getOptionSelected={(city, value) => city.id === value.id}
+    getOptionLabel={city => `${city.nom} - ${city.codePostal}`}
+    options={options}
+    loading={loading}
+    onInputChange={(e, values) => loadCities(values)}
+    renderInput={params => AutocompleteTextField({ params, loading })}
+  />
 }
