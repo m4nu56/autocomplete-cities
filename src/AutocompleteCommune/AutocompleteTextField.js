@@ -4,7 +4,7 @@ import CircularProgress from '@material-ui/core/CircularProgress'
 import InputAdornment from '@material-ui/core/InputAdornment'
 import SearchIcon from '@material-ui/icons/Search'
 
-export const AutocompleteTextField = ({params, loading}) =>
+export const AutocompleteTextField = ({params, isLoading}) =>
   <TextField
     {...params}
     placeholder="Commune..."
@@ -14,7 +14,7 @@ export const AutocompleteTextField = ({params, loading}) =>
       ...params.InputProps,
       endAdornment: (
         <React.Fragment>
-          {loading ? <CircularProgress color="inherit" size={20}/> : null}
+          {isLoading ? <CircularProgress color="inherit" size={20}/> : null}
           {params.InputProps.endAdornment}
         </React.Fragment>
       ),

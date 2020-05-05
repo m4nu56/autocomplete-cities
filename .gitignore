@@ -1,5 +1,5 @@
 # Custom env vars
-src/.env
+.env
 
 # Logs
 logs
