@@ -8,7 +8,7 @@ export default function AutocompleteCommune ({ setError, onChange, apiUrl }) {
   const [options, setOptions] = useState([])
   const loading = open && options.length === 0
 
-  function computeUrl (search) {
+  const computeUrl = search => {
     let url = `${apiUrl}/observatoire/communes/light?name=${search}&zipcode=${search}`
     const searches = search.split('-')
     if (searches.length > 1) {
@@ -20,9 +20,8 @@ export default function AutocompleteCommune ({ setError, onChange, apiUrl }) {
   }
 
   const loadCities = async search => {
-    let url = computeUrl(search)
     try {
-      const { data: cities } = await makeRequest(url)
+      const { data: cities } = await makeRequest(computeUrl(search))
       if (cities && cities.length>0) {
         setOptions(cities)
       } else {
@@ -32,7 +31,7 @@ export default function AutocompleteCommune ({ setError, onChange, apiUrl }) {
     } catch (e) {
       setOptions([])
       setOpen(false)
-      setError(`Erreur lors du chargement des communes par l'api: ${url}. ${e.message}`)
+      setError(`Erreur lors du chargement des communes par l'api: ${computeUrl(search)}. ${e.message}`)
     }
   }
 
