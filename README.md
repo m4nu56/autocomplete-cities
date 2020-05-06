@@ -1,4 +1,4 @@
-# Simple autocomplete react component 
+# Material-UI Autocomplete React implementation 
 
 ![Build and publish](https://github.com/m4nu56/pg-schema-restorer/workflows/Build%20and%20publish/badge.svg)
 
