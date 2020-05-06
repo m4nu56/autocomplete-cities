@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './App.css'
-import AutocompleteCommune from './AutocompleteCommune/AutocompleteCommune'
+import AutocompleteCommune from './components/AutocompleteCommune/AutocompleteCommune'
 import config from './config'
 
 function App () {

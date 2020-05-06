@@ -1,7 +1,7 @@
 /**
  * Méthode centralisée pour effectuer les appels API
  */
-export const makeRequest = (url, method = 'GET', payload) => {
+export default (url, method = 'GET', payload) => {
 
   //console.log(`urlApi call=${urlApi}`)
   const request = new window.Request(url, {
@@ -26,7 +26,7 @@ export const makeRequest = (url, method = 'GET', payload) => {
  * @param mode
  * @returns {*}
  */
-export const checkStatus = (response, mode = 'json') => {
+const checkStatus = (response, mode = 'json') => {
   if (response.status < 200 || response.status >= 300) {
     console.error(`status not ok = ${response.status} ${response.statusText}`, response)
     throw new Error(`status not ok = ${response.status} ${response.statusText}`)

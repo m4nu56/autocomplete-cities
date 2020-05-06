@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { makeRequest } from './index'
+import makeRequest from '../../api/makeRequest'
 
 export const useCommuneApi = (apiUrl, initialQuery, setError) => {
   const [options, setOptions] = useState([])

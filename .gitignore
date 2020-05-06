@@ -86,3 +86,4 @@ src/build
 *.iws
 
 storybook-static
+dist
