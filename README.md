@@ -1,6 +1,6 @@
 # Material-UI Autocomplete React implementation
 
-![Build and publish](https://github.com/m4nu56/pg-schema-restorer/workflows/Build%20and%20publish/badge.svg)
+![Node.js CI](https://github.com/m4nu56/autocomplete-cities/workflows/Node.js%20CI/badge.svg)
 
 The component fetches data from an API and updates the list at each keystroke. 
 
