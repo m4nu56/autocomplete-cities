@@ -5,6 +5,7 @@ import TextField from '@material-ui/core/TextField'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import InputAdornment from '@material-ui/core/InputAdornment'
 import SearchIcon from '@material-ui/icons/Search'
+import _ from 'lodash'
 
 export default function AutocompleteCommune ({ setError, onChange, apiUrl }) {
   const [open, setOpen] = useState(false)
@@ -21,7 +22,7 @@ export default function AutocompleteCommune ({ setError, onChange, apiUrl }) {
     getOptionLabel={city => `${city.nom} - ${city.codePostal}`}
     options={options}
     loading={isLoading}
-    onInputChange={(e, values) => setQuery(values)}
+    onInputChange={_.debounce((e, values) => setQuery(values), 500)}
     renderInput={params => AutocompleteTextField({ params, isLoading })}
   />
 }
