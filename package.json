@@ -20,7 +20,7 @@
     "miragejs": "^0.1.38",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-scripts": "5.0.1"
   },
   "eslintConfig": {
     "extends": "react-app"
